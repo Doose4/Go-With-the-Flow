@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Go-With-the-Flow.sln
+Go-With-the-Flow.vcxproj
+Go-With-the-Flow.vcxproj.filters
