@@ -6,18 +6,14 @@
 #include "HeatFlow.hpp"
 using namespace std;
 
+//Private sub to clean up doubles to not have 4 trailing zeros
 string HeatFlow::Cleanup(double element) {
-    // Print value to a string
     stringstream ss;
     ss << fixed << std::setprecision(2) << element;
     string str = ss.str();
 
-    // Ensure that there is a decimal point somewhere (there should be)
     if (str.find('.') != std::string::npos) {
-        // Remove trailing zeroes
         str = str.substr(0, str.find_last_not_of('0') + 1);
-
-        // If the decimal point is now the last character, remove that as well
         if (str.find('.') == str.size() - 1) {
             str = str.substr(0, str.size() - 1);
         }
@@ -26,6 +22,7 @@ string HeatFlow::Cleanup(double element) {
     return str;
 }
 
+//constructs Heatflow class, uses an indicator to set specific varibles for testing
 HeatFlow::HeatFlow(int indicator) {
     double sinks;
     double locations;
@@ -132,11 +129,9 @@ HeatFlow::HeatFlow(int indicator) {
             rod.append_element(intTemp);
         }
     }
-
-    //rodPtr = rod.getPointer();
-    //sourceNsinkPtr = sourceNsink.getPointer();
 }
 
+//Goes forward one tick to find new temps throughout the sections
 void HeatFlow::tick() {
     vector <double> tempvector;
     double newval = 0;
@@ -183,6 +178,7 @@ void HeatFlow::tick() {
     }
 }
 
+//Prints out a pretty output for the user to enjoy
 string HeatFlow::pretty_print() {
     string bars = "+";
     string valu = "|";
@@ -212,5 +208,4 @@ string HeatFlow::pretty_print() {
     
     }
     return (bars + "\n" + valu + "\n" + bars + "\n");
-
 }

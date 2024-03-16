@@ -29,6 +29,7 @@ double* Myarray::resize_array()
     return new_array;
 }
 
+//Adds an element onto the array, whether it expands the dynamic array or rewrites an existing varible that wasn't called
 void Myarray::append_element(double element) {
     int dif = top - start;
     if (dif == 0) {
@@ -50,14 +51,17 @@ void Myarray::append_element(double element) {
 
 }
 
+//Pulls value at specific location
 double Myarray::get_element_at_index(int index) {
     return *(start + index);
 }
 
+//finds the arrays size
 int Myarray::arraysize() {
     return (top - start);
 }
 
+//Resets the Array to no elements
 void Myarray::reset() {
     top = start;
 }
