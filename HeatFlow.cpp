@@ -84,6 +84,8 @@ HeatFlow::HeatFlow(int indicator) {
         string english;
         for (int i = 0; i < sinks; i++)
         {
+            bool inprogresss = true;
+
             switch (i)
             {
             case 0:
@@ -99,8 +101,20 @@ HeatFlow::HeatFlow(int indicator) {
                 english = "th";
                 break;
             }
-            cout << "\nPlease enter the " << i + 1 << english << " location on the rod (starting with 0): ";
-            cin >> locations;
+
+            while (inprogresss == true) {
+                cout << "\nPlease enter the " << i + 1 << english << " location on the rod (starting with 0): ";
+                cin >> locations;
+                inprogresss = false;
+                for (int i = 0; i < sinks; i++)
+                {
+                    if (locations == sourceNsink.get_element_at_index(i * 2)) {
+                        cout << "That location was already used..." << endl;
+                        inprogresss = true;
+                    }
+                }
+            }
+            
             sourceNsink.append_element(locations);
             cout << "\nPlease enter the constant temperator at the " << i + 1 << english << " location (in celcius): ";
             cin >> temps;
