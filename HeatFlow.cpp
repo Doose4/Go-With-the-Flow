@@ -33,7 +33,7 @@ HeatFlow::HeatFlow(int indicator) {
         break;
     case 3:
         intTemp = 10;
-        rodLen = 10;
+        rodLen = 9;
         contK = 0.1;
         sinks = 3;
         locations = 0;
@@ -50,7 +50,7 @@ HeatFlow::HeatFlow(int indicator) {
         sourceNsink.append_element(temps);
         break;
     default:
-        cout << "Please enter the initial temperator throgh out the rod: ";
+        cout << "Please enter the initial temperator through out the rod: ";
         cin >> intTemp;
 
         cout << "\nPlease enter how many sections are in the rod: ";
@@ -144,9 +144,9 @@ void HeatFlow::tick() {
         
     }
 
-    if (sourceNsink.get_element_at_index(k * 2) == j)
+    if (sourceNsink.get_element_at_index(k * 2) == j-1)
     {
-        tempvector.push_back(rod.get_element_at_index(j));
+        tempvector.push_back(rod.get_element_at_index(j-1));
         k++;
     }
     else {
