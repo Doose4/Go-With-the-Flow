@@ -1,13 +1,35 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
+#include <sstream>
 #include "HeatFlow.hpp"
 using namespace std;
 
+string HeatFlow::Cleanup(double element) {
+    // Print value to a string
+    stringstream ss;
+    ss << fixed << std::setprecision(2) << element;
+    string str = ss.str();
+
+    // Ensure that there is a decimal point somewhere (there should be)
+    if (str.find('.') != std::string::npos) {
+        // Remove trailing zeroes
+        str = str.substr(0, str.find_last_not_of('0') + 1);
+
+        // If the decimal point is now the last character, remove that as well
+        if (str.find('.') == str.size() - 1) {
+            str = str.substr(0, str.size() - 1);
+        }
+    }
+
+    return str;
+}
+
 HeatFlow::HeatFlow(int indicator) {
-    int sinks;
-    int locations;
-    int temps;
+    double sinks;
+    double locations;
+    double temps;
 
     switch (indicator)
     {
@@ -22,7 +44,7 @@ HeatFlow::HeatFlow(int indicator) {
         sourceNsink.append_element(temps);
         break;
     case 2:
-        intTemp = 20;
+        intTemp = 22.2;
         rodLen = 10;
         contK = 0.2;
         sinks = 1;
@@ -168,7 +190,7 @@ string HeatFlow::pretty_print() {
     for (int i = 0; i < rodLen; i++)
     {
         bars = bars + "-----+";
-        string leng = to_string(rod.get_element_at_index(i));
+        string leng = Cleanup(rod.get_element_at_index(i));
         switch (leng.length())
         {
         case 1:

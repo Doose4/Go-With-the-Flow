@@ -7,13 +7,12 @@ using namespace std;
 
 class HeatFlow
 {
-    int intTemp;
+    double intTemp;
     int rodLen;
     double contK;
     Myarray rod;
     Myarray sourceNsink;
-    //int* rodPtr = rod.getPointer();
-    //int* sourceNsinkPtr = sourceNsink.getPointer();
+    string Cleanup(double element);
 
 public:
     explicit HeatFlow(int indicator = 0);

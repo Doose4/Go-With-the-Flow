@@ -6,17 +6,16 @@ class Myarray
 {
 private:
 	int max = 1;
-	int* array_pntr;
-	int* top;
-	int* start;
-	int* resize_array();
+	double* array_pntr;
+	double* top;
+	double* start;
+	double* resize_array();
 
 public:
 	explicit Myarray();
-	void append_element(int element);
-	int get_element_at_index(int index);
+	void append_element(double element);
+	double get_element_at_index(int index);
 	int arraysize();
 	void reset();
-	int* getPointer();
 };
 

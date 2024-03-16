@@ -3,17 +3,17 @@
 
 Myarray::Myarray() {
     max = 1;
-    array_pntr = new int[max];
+    array_pntr = new double[max];
     start = array_pntr;
     top = start;
 
 }
 
-int* Myarray::resize_array()
+double* Myarray::resize_array()
 {
     // Create a new dynamic array that is one larger than the old array
     max++;
-    int* new_array = new int[max];
+    double* new_array = new double[max];
     start = new_array;
     top = start + max - 1;
 
@@ -29,7 +29,7 @@ int* Myarray::resize_array()
     return new_array;
 }
 
-void Myarray::append_element(int element) {
+void Myarray::append_element(double element) {
     int dif = top - start;
     if (dif == 0) {
         *top = element;
@@ -50,7 +50,7 @@ void Myarray::append_element(int element) {
 
 }
 
-int Myarray::get_element_at_index(int index) {
+double Myarray::get_element_at_index(int index) {
     return *(start + index);
 }
 
@@ -60,8 +60,4 @@ int Myarray::arraysize() {
 
 void Myarray::reset() {
     top = start;
-}
-
-int* Myarray::getPointer() {
-    return array_pntr;
 }
