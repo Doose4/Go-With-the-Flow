@@ -148,47 +148,48 @@ HeatFlow::HeatFlow(int indicator) {
 //Goes forward one tick to find new temps throughout the sections
 void HeatFlow::tick() {
     vector <double> tempvector;
+    Myarray temparray;
     double newval = 0;
     int j = rod.arraysize();
     int k = 0;
 
     if (sourceNsink.get_element_at_index(k*2) == 0)
     {
-        tempvector.push_back(rod.get_element_at_index(0));
+        temparray.append_element(rod.get_element_at_index(0));
         k++;
     } else {
         newval = rod.get_element_at_index(0) + (contK * (rod.get_element_at_index(1) - rod.get_element_at_index(0)));
-        tempvector.push_back(newval);
+        temparray.append_element(newval);
     }
 
     for (int i = 1; i < j-1; i++)
     {
         if (sourceNsink.get_element_at_index(k * 2) == i)
         {
-            tempvector.push_back(rod.get_element_at_index(i));
+            temparray.append_element(rod.get_element_at_index(i));
             k++;
         }
         else {
             newval = rod.get_element_at_index(i) + (contK * (rod.get_element_at_index(i + 1) - (2 * rod.get_element_at_index(i)) + rod.get_element_at_index(i - 1)));
-            tempvector.push_back(newval);
+            temparray.append_element(newval);
         }
         
     }
 
     if (sourceNsink.get_element_at_index(k * 2) == j-1)
     {
-        tempvector.push_back(rod.get_element_at_index(j-1));
+        temparray.append_element(rod.get_element_at_index(j - 1));
         k++;
     }
     else {
         newval = rod.get_element_at_index(j-1) + (contK * ((-1 * rod.get_element_at_index(j-1)) + rod.get_element_at_index(j - 2)));
-        tempvector.push_back(newval);
+        temparray.append_element(newval);
     }
 
     rod.reset();
     for (int i = 0; i < j; i++)
     {
-        rod.append_element(tempvector[i]);
+        rod.append_element(temparray.get_element_at_index(i));
     }
 }
 
