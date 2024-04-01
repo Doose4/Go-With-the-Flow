@@ -22,14 +22,34 @@ Are there any prerequisites for your project? If so, list them here. If note, yo
 
     Running code
 1. Start the code
-2. Type "start" at the start
-3. Enter the latent temperator throughout the rod in celcius (22 is average room temperator) (decimals are acceptable)
-4. Enter the amount of sections you want in the rod (integer)
-5. Enter the constant k value (preferably between 0 and 1)
-6. Enter the amount of sinks and sources on your rod
-7. Enter the locations and the temps at those locations
-8. Answer yes to run a tick and see the output
-9. Repeat step 8 until desired. Then type "no" to exit.
+2. For the standard program follow instructions 3-10, the complex formula follow instructions 11-20, for individual insulators follow instructions 21-30
+3. Type "start" at the start
+4. Enter the latent temperator throughout the rod in celcius (22 is average room temperator) (decimals are acceptable)
+5. Enter the amount of sections you want in the rod (integer)
+6. Enter the constant k value (preferably between 0 and 1)
+7. Enter the amount of sinks and sources on your rod
+8. Enter the locations and the temps at those locations
+9. Answer yes to run a tick and see the output
+10. Repeat step 9 until desired. Then type "no" to exit.
+11. Type "complex" at the start
+12. Enter the latent temperator throughout the rod in celcius (22 is average room temperator) (decimals are acceptable)
+13. Enter the amount of sections you want in the rod (integer)
+14. Enter the thermal conductivity of the rod (preferably between 0 and 1)
+15. Enter the length of length of time between each tick.
+16. Enter the distance between each section of the rod.
+17. Enter the amount of sinks and sources on your rod
+18. Enter the locations and the temps at those locations
+19. Answer yes to run a tick and see the output
+20. Repeat step 19 until desired. Then type "no" to exit.
+21. Type "Insulator" at the start
+22. Enter the latent temperator throughout the rod in celcius (22 is average room temperator) (decimals are acceptable)
+23. Enter the amount of sections you want in the rod (integer)
+24. Enter the constant k for each section of the rod.
+25. Enter the amount of sinks and sources on your rod
+26. Enter the locations and the temps at those locations
+27. Answer yes to run a tick and see the output
+28. Repeat step 27 until desired. Then type "no" to exit.
+
 
 standard view:
 +-----+-----+-----+-----+-----+
