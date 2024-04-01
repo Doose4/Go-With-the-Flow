@@ -2,6 +2,7 @@
 #include <array>
 #include "HeatFlow.hpp"
 #include "AdvancedFlow.hpp"
+#include "MultiK.hpp"
 
 using namespace std;
 
@@ -54,6 +55,18 @@ void tester() {
 	cout << complexrod.pretty_print();
 	complexrod.tick();
 	cout << complexrod.pretty_print();
+
+	cout << endl << endl << "Testing individual insulators" << endl;
+	MultiK insulatorrod(2);
+
+	//tests a rod with big formula
+	cout << insulatorrod.pretty_print();
+	insulatorrod.tick();
+	cout << insulatorrod.pretty_print();
+	insulatorrod.tick();
+	cout << insulatorrod.pretty_print();
+	insulatorrod.tick();
+	cout << insulatorrod.pretty_print();
 
 	cout << endl << endl << "Testing completed" << endl;
 }
