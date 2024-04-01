@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include "HeatFlow.hpp"
+#include "AdvancedFlow.hpp"
 
 using namespace std;
 
@@ -40,6 +41,19 @@ void tester() {
 	cout << multirod.pretty_print();
 	multirod.tick();
 	cout << multirod.pretty_print();
+
+
+	cout << endl << endl << "Testing complex formula locations" << endl;
+	AdvFlow complexrod(1);
+
+	//tests a rod with big formula
+	cout << complexrod.pretty_print();
+	complexrod.tick();
+	cout << complexrod.pretty_print();
+	complexrod.tick();
+	cout << complexrod.pretty_print();
+	complexrod.tick();
+	cout << complexrod.pretty_print();
 
 	cout << endl << endl << "Testing completed" << endl;
 }
